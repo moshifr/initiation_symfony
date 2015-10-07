@@ -43,7 +43,7 @@ class HelloController extends Controller
     	// attention à bien utiliser la classe 
     	// use Symfony\Component\HttpFoundation\Response;
         // ligne 23
-        return new Response('HELLO');
+        return $this->render('hello/index.html.twig');
     }
 
 
