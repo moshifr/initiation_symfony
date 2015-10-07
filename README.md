@@ -104,9 +104,12 @@ Aller sur [Twig] pour voir la documentation. On utilisera des logiques simples t
 
 #Exo 4
 * Créer une nouvelle page dans HelloController qui va reprendre un code couleur depuis l'url pour changer le fond de la page
-* http://localhost/symfony_demo/app.php/fr/hello/switch_bg/bleu
+* http://localhost/symfony_demo/web/app.php/fr/hello/switch_bg/bleu
 * Créer une nouvelle méthode de controller avec une annotation qui reprendra des arguments.
 * Et afficher cette variable dans la template twig pour en changer la couleur.
+
+#Exo 4.1
+* Faire que hello/index.html.twig hérite de base.html.twig
 
 #Controller et route
 Vous pouvez récupérer des variables de l'url en rajoutant :
