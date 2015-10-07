@@ -24,7 +24,25 @@ use AppBundle\Entity\Post;
  */
 class PostRepository extends EntityRepository
 {
-    public function findLatest($limit = Post::NUM_ITEMS)
+    public function queryLatest()
+    {
+        return $this->getEntityManager()
+            ->createQuery('
+                SELECT p
+                FROM AppBundle:Post p
+                WHERE p.publishedAt <= :now
+                ORDER BY p.publishedAt DESC
+            ')
+            ->setParameter('now', new \DateTime())
+        ;
+    }
+
+    public function findLatest()
+    {
+        $this->queryLatest()->getResult();
+    }
+    
+    /*public function findLatest($limit = Post::NUM_ITEMS)
     {
         return $this
             ->createQueryBuilder('p')
@@ -35,5 +53,5 @@ class PostRepository extends EntityRepository
             ->getQuery()
             ->getResult()
         ;
-    }
+    }*/
 }
