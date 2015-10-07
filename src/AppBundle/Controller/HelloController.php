@@ -26,7 +26,7 @@ use Symfony\Component\Intl\Intl;
 /**
  * Controller used to manage blog contents in the public part of the site.
  *
- * 
+ * @Route("/hello") 
  *
  * @author Ryan Weaver <weaverryan@gmail.com>
  * @author Javier Eguiluz <javier.eguiluz@gmail.com>
@@ -34,10 +34,15 @@ use Symfony\Component\Intl\Intl;
 class HelloController extends Controller
 {
     /**
-     * @Route("/hello", name="hello_index")
+     * @Route("/", name="hello_index")
      */
     public function indexAction()
     {
+    	// chaque action doit retourner une 
+    	// response :
+    	// attention à bien utiliser la classe 
+    	// use Symfony\Component\HttpFoundation\Response;
+        // ligne 23
         return new Response('HELLO');
     }
 
