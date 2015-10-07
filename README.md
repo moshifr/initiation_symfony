@@ -125,7 +125,16 @@ Vous pouvez récupérer des variables de l'url en rajoutant :
 Dans  l'annotation si on rajoute des accolades {valeur} on peut récupérer cette valeur dans la méthode et ainsi faire un traitement spécifique. Ensuite on le fourni à la vue via le deuxième argument de render qui est un tableau. On a mis par défaut la couleur à rouge on peut également faire des conditions de vérification par exemple si la valeur de couleur ne contient pas de nombre par exemple.
 
 #Exo 5
-* Modifier BlogController::indexAction pour n'afficher que les articles avec le mot "curabitur"
+* Modifier BlogController::indexAction pour n'afficher que les articles avec le mot "Curabitur"
+
+
+#Exo 6 
+* Créer un nouveau bundle :
+$ php app/console doctrine:generate:bundle 
+* Avec comme nom MmiBundle
+* Avec comme url /mmi
+* Créer une nouvelle méthode proxyAction
+
 
 
  
