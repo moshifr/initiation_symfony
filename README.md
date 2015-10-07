@@ -96,7 +96,7 @@ Ici la route se nomme blog_index et se réfère à l'url "/"
 
 # Exo 3 
 * Intégration simple d'une template Twig
-* Créer la template dans src/Resources/hello/index.html.twig
+* Créer la template dans app/Resources/views/hello/index.html.twig
 * Au lieu de return new Response on fera return $this->render('hello/index.html.twig');
 
 #Twig
