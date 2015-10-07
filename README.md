@@ -126,7 +126,8 @@ Dans  l'annotation si on rajoute des accolades {valeur} on peut récupérer cett
 
 #Exo 5
 * Modifier BlogController::indexAction pour n'afficher que les articles avec le mot "Curabitur"
-
+* Modifier PostRepository pour ajouter une fonction de recherche sur le titre
+* Rajouter une page http://localhost/symfony_demo/web/app_deb.php/fr/blog/filter/cura/ qui affichera les articles avec "cura" dans le titre
 
 #Exo 6 
 * Créer un nouveau bundle :
