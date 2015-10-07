@@ -129,6 +129,10 @@ Dans  l'annotation si on rajoute des accolades {valeur} on peut récupérer cett
 * Modifier PostRepository pour ajouter une fonction de recherche sur le titre
 * Rajouter une page http://localhost/symfony_demo/web/app_dev.php/fr/blog/filter/cura/ qui affichera les articles avec "cura" dans le titre
 
+#Repository
+Une repository est l'extension d'une entité, quant une entité se contente de lister ses propriétés et les getter / setter de celles ci la repository va effectuer toutes les recherches, fonctions annexes propre à une entité, à un modèle.
+Elle se trouve en général dans un répertoire Repository ou dans Entity
+
 #Exo 6 
 * Créer une nouvelle entité AppBundle:Category :
 $ php app/console doctrine:generate:entity 
@@ -156,7 +160,7 @@ $ php app/console doctrine:generate:entities AppBundle:Category
 puis on remet à jour la base de données
 $ php app/console doctrine:schema:update --force
 
-# Exo 9 - Relations  
+# Exo 7 - Relations  
 * On va utiliser une relation OneToMany (One Category to Many Post) et ManyToOne (Many Posts to One Category)
 * On modifie les entités
 * On modifie les forms pour rajouter les liaisons
