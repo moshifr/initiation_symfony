@@ -127,14 +127,42 @@ Dans  l'annotation si on rajoute des accolades {valeur} on peut récupérer cett
 #Exo 5
 * Modifier BlogController::indexAction pour n'afficher que les articles avec le mot "Curabitur"
 * Modifier PostRepository pour ajouter une fonction de recherche sur le titre
-* Rajouter une page http://localhost/symfony_demo/web/app_deb.php/fr/blog/filter/cura/ qui affichera les articles avec "cura" dans le titre
+* Rajouter une page http://localhost/symfony_demo/web/app_dev.php/fr/blog/filter/cura/ qui affichera les articles avec "cura" dans le titre
 
 #Exo 6 
-* Créer un nouveau bundle :
-$ php app/console doctrine:generate:bundle 
-* Avec comme nom MmiBundle
-* Avec comme url /mmi
-* Créer une nouvelle méthode proxyAction
+* Créer une nouvelle entité AppBundle:Category :
+$ php app/console doctrine:generate:entity 
+* ajouter title et slug tous les deux champs en varchar
+* Mettre à jour la base de données 
+$ php app/console doctrine:schema:update --force
+* Créer un backoffice Category (reprendre tout le controller admin/BlogController.php) et copier admin/BlogCategoryController
+* Modifier toutes les instances Post par Category, $posts par $categories et $post en $category ...
+* Mettre en place les templates admin/category/*
+* Attention les variables sont $category et $categories et il y a des champs en moins (author) par exemple
+* Tester http://localhost/symfony_demo/web/app_dev.php/fr/admin/category/  
+* Ajouter le formulaire Form/CategoryType.php
+* Tester sur http://localhost/symfony_demo/web/app_dev.php/fr/admin/category/new
+
+# Entité
+Pour créer une Entité on utilise la console 
+$ php app/console doctrine:generate:entity
+On renseigne les différents champs.
+Puis on met à jour la base de données :
+$ php app/console doctrine:schema:update --force
+
+Pour modifier une entité on modifie la classe Entite.php (Post.php par exemple) en rajoutant des propriétés var $title;
+Ensuite on mets à jour l'entité :
+$ php app/console doctrine:generate:entities AppBundle:Category
+puis on remet à jour la base de données
+$ php app/console doctrine:schema:update --force
+
+# Exo 9 - Relations  
+* On va utiliser une relation OneToMany (One Category to Many Post) et ManyToOne (Many Posts to One Category)
+* On modifie les entités
+* On modifie les forms pour rajouter les liaisons
+* On rajoute ensuite des pages catégories qui vont filtrer par catégories les posts
+
+
 
 
 
