@@ -35,7 +35,7 @@ class BlogController extends Controller
 {
 
     /**
-     * @Route("/", name="blog_index", defaults={"page" = 1}, defaults={"page": 0, "search": "*"})
+     * @Route("/", name="blog_index", defaults={"page": 0, "search": "*"})
      * @Route("/page/{page}", name="blog_index_paginated", requirements={"page" : "\d+"}, defaults={"search": "*"})
      * @Route("/filter/{search}", name="blog_search", requirements={"page" : "\d+"}, defaults={"page": 1})
      * @Route("/filter/{search}/{page}", name="blog_search_paginated", requirements={"page" : "\d+"}, defaults={"page": 1})

@@ -1,0 +1,17 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body_id 'admin_category_new' %}
+
+{% block main %}
+    <h1>Ajouter catégorie</h1>
+
+    {{ include('admin/category/_form.html.twig', {
+        include_back_to_home_link: true,
+    }) }}
+{% endblock %}
+
+{% block sidebar %}
+    {{ parent() }}
+
+    {{ show_source_code(_self) }}
+{% endblock %}
