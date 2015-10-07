@@ -132,6 +132,9 @@ Dans  l'annotation si on rajoute des accolades {valeur} on peut récupérer cett
 #Repository
 Une repository est l'extension d'une entité, quant une entité se contente de lister ses propriétés et les getter / setter de celles ci la repository va effectuer toutes les recherches, fonctions annexes propre à une entité, à un modèle.
 Elle se trouve en général dans un répertoire Repository ou dans Entity
+ON va pouvoir créer des requetes via
+> $this->getEntityManager()
+            ->createQuery('select * ...')
 
 #Exo 6 
 * Créer une nouvelle entité AppBundle:Category :
