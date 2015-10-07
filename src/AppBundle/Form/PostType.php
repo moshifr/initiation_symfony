@@ -51,6 +51,7 @@ class PostType extends AbstractType
                 'widget' => 'single_text',
                 'label' => 'label.published_at',
             ))
+            ->add('category')
         ;
     }
 
