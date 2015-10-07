@@ -1,8 +1,22 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body_id 'hello_index' %}
+
+{% block stylesheets %}
+
 {% if color is defined %}
+{{ parent() }}
 <style>
 	body {
 	background: {{ color }};
 	}
 </style>
 {% endif %}
+
+{% endblock %}
+
+{% block main %}
+
 HELLO TWIG
+{% endblock %}
