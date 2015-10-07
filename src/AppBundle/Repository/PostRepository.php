@@ -36,7 +36,19 @@ class PostRepository extends EntityRepository
             ->setParameter('now', new \DateTime())
         ;
     }
-
+    public function search($term)
+    {
+        return $this->getEntityManager()
+            ->createQuery('
+                SELECT p
+                FROM AppBundle:Post p
+                WHERE p.title like :term
+                ORDER BY p.publishedAt DESC
+            ')
+            ->setParameter('term', '%'.$term.'%')
+            ->getResult()
+        ;
+    }
     public function findLatest()
     {
         $this->queryLatest()->getResult();

@@ -33,16 +33,29 @@ use Symfony\Component\Intl\Intl;
  */
 class BlogController extends Controller
 {
+    
     /**
-     * @Route("/", name="blog_index")
+     * @Route("/", name="blog_index", defaults={"page" = 1}, defaults={"page": 0, "search": "*"})
+     * @Route("/page/{page}", name="blog_index_paginated", requirements={"page" : "\d+"}, defaults={"search": "*"})
+     * @Route("/filter/{search}", name="blog_search", requirements={"page" : "\d+"}, defaults={"page": 1})
+     * @Route("/filter/{search}/{page}", name="blog_search_paginated", requirements={"page" : "\d+"}, defaults={"page": 1})
      */
-    public function indexAction()
+    public function indexAction($page, $search)
     {
-        $em = $this->getDoctrine()->getManager();
-        $posts = $em->getRepository('AppBundle:Post')->findLatest();
+        if($search == "*")
+            $query = $this->getDoctrine()->getRepository('AppBundle:Post')->queryLatest();
+        else
+        {
+            $query = $this->getDoctrine()->getRepository('AppBundle:Post')->search($search);
+        }
+
+        $paginator = $this->get('knp_paginator');
+        $posts = $paginator->paginate($query, $page, Post::NUM_ITEMS);
+        $posts->setUsedRoute('blog_index_paginated');
 
         return $this->render('blog/index.html.twig', array('posts' => $posts));
     }
+
 
     /**
      * @Route("/posts/{slug}", name="blog_post")
