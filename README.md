@@ -4,6 +4,7 @@ Pour Licence MMI @moshifr < moshi@moshi.fr >
 ----------
 >Ce tutoriel a pour but de se familiariser pendant 25 heures à Symfony.
 Nous n'irons pas dans le détail, vous aurez d'autres cours en S4 pour continuer / approfondir.
+[Dernière correction]
 
 #Introduction
 Nous allons voir pendant ce cours [Symfony] et [Twig].
@@ -169,7 +170,9 @@ $ php app/console doctrine:schema:update --force
 * On modifie les forms pour rajouter les liaisons
 * On rajoute ensuite des pages catégories qui vont filtrer par catégories les posts
 
-
+# Exo 8 - Recherche multicritère 
+* Faire une page de recherche multicritère
+* Utiliser une class Form/RechercheType.php
 
 
 
@@ -177,3 +180,4 @@ $ php app/console doctrine:schema:update --force
        
 [Symfony]: <http://www.symfony.com>
 [Twig]: <http://twig.sensiolabs.org/>
+[Dernière correction]: <https://github.com/moshifr/initiation_symfony#exo-5>
