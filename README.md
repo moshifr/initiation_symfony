@@ -170,6 +170,11 @@ $ php app/console doctrine:schema:update --force
 * On modifie les forms pour rajouter les liaisons
 * On rajoute ensuite des pages catégories qui vont filtrer par catégories les posts
 
+http://www.moshi.fr/symfony2/Symfony2-LP-Entites.pdf
+http://www.moshi.fr/symfony2/Symfony2-LP-FORM.pdf
+http://www.moshi.fr/symfony2/Symfony2-LP-TWIG.pdf
+http://www.moshi.fr/symfony2/Symfony2-LP-TDTP1.pdf
+
 # Exo 8 - Recherche multicritère 
 * Faire une page de recherche multicritère
 * Utiliser une class Form/RechercheType.php
