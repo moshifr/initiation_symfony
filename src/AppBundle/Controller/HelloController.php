@@ -45,6 +45,15 @@ class HelloController extends Controller
         // ligne 23
         return $this->render('hello/index.html.twig');
     }
+    
+    /**
+     * @Route("/switch_bg/{color}", name="hello_switch", defaults={"color"="red"})
+     * @Route("/switch_bg/", name="hello_switch_red", defaults={"color"="red"})
+     */
+    public function switchAction($color)
+    {
+        return $this->render('hello/index.html.twig', array('color' => $color));
+    }
 
 
 }
