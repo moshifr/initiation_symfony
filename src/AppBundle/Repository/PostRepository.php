@@ -46,7 +46,6 @@ class PostRepository extends EntityRepository
                 ORDER BY p.publishedAt DESC
             ')
             ->setParameter('term', '%'.$term.'%')
-            ->getResult()
         ;
     }
     public function findLatest()
