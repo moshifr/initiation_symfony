@@ -53,6 +53,19 @@ class BlogController extends Controller
         return $this->render('blog/index.html.twig', array('posts' => $posts));
     }
 
+    /**
+     * @Route("/category/{id_category}", name="blog_category")
+     */
+    public function categoryAction($id_category)
+    {
+
+        $posts = $this->getDoctrine()
+            ->getRepository('AppBundle:Post')
+            ->findBy( array('category' => $id_category) );
+        
+        return $this->render('blog/index.html.twig', array('posts' => $posts));
+    }
+
 
     /**
      * @Route("/posts/{slug}", name="blog_post")
