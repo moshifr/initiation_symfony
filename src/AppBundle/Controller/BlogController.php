@@ -14,6 +14,8 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Comment;
 use AppBundle\Entity\Post;
 use AppBundle\Form\CommentType;
+use AppBundle\Form\RechercheType;
+
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -64,6 +66,49 @@ class BlogController extends Controller
             ->findBy( array('category' => $id_category) );
         
         return $this->render('blog/index.html.twig', array('posts' => $posts));
+    }
+
+    /**
+     * @Route("/search", name="blog_search")
+     */
+    public function searchAction(Request $request)
+    {
+        // on récupère le formulaire builder
+        $formType = new RechercheType();
+
+        // on crée le formulaire Symfony
+        $form = $this->createForm($formType);
+
+        $posts = array();
+
+        // on test si c'est un envoi POST
+        if( $request->getMethod() == 'POST')
+        {
+            $form->bind($request); 
+            // on remplit les champs du formulaire 
+             // par les data post
+            
+            if( $form->isValid() ) // si le formulaire est valide 
+            {
+                // on récupère les informations du formulaire dans un tableau
+                $data = $form->getData();
+
+                // on recherche les articles liés 
+                $posts = $this->getDoctrine()
+                ->getRepository('AppBundle:Post')
+                ->searchForm( $data['keywords'], $data['category'] )
+                ->getResult()
+                ;
+            }
+
+        }
+
+        return $this->render('blog/search.html.twig', array(
+            'posts' => $posts,
+            // on retourne à twig le formulaire twig
+            'form'  => $form->createView() 
+
+            ));
     }
 
 

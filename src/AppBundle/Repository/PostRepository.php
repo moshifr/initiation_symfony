@@ -48,6 +48,21 @@ class PostRepository extends EntityRepository
             ->setParameter('term', '%'.$term.'%')
         ;
     }
+
+    public function searchForm($term, $category=false)
+    {
+        return $this->getEntityManager()
+            ->createQuery('
+                SELECT p
+                FROM AppBundle:Post p
+                WHERE p.title like :term
+                and p.category = :category
+                ORDER BY p.publishedAt DESC
+            ')
+            ->setParameter('term', '%'.$term.'%')
+            ->setParameter('category', $category )
+        ;
+    }
     public function findLatest()
     {
         $this->queryLatest()->getResult();
